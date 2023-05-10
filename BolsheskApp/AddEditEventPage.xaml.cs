@@ -20,11 +20,20 @@ namespace BolsheskApp
     /// </summary>
     public partial class AddEditEventPage : Page
     {
+        Event @event;
+        bool add;
         public AddEditEventPage()
         {
             InitializeComponent();
+            this.@event = new Event();
+            add = true;
         }
-
+        public AddEditEventPage(Event @event)
+        {
+            InitializeComponent();
+            this.@event = @event;
+            add = false;
+        }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
 
@@ -37,7 +46,7 @@ namespace BolsheskApp
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.GoBack();
         }
     }
 }

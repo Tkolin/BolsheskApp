@@ -20,11 +20,20 @@ namespace BolsheskApp
     /// </summary>
     public partial class AddEditShebulePage : Page
     {
+        Schedule schedule;
+        bool add;
         public AddEditShebulePage()
         {
             InitializeComponent();
+            this.schedule = new Schedule();
+            this.add = true;
         }
-
+        public AddEditShebulePage(Schedule schedule)
+        {
+            InitializeComponent();
+            this.schedule = schedule;
+            this.add = false;
+        }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
 
@@ -52,7 +61,7 @@ namespace BolsheskApp
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.GoBack();
         }
     }
 }

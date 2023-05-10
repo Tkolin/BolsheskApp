@@ -20,9 +20,19 @@ namespace BolsheskApp
     /// </summary>
     public partial class AddEditUserPage : Page
     {
+        User user;
+        bool add;
         public AddEditUserPage()
         {
             InitializeComponent();
+            this.user = new User();
+            this.add = true;
+        }
+        public AddEditUserPage(User user)
+        {
+            InitializeComponent();
+            this.user = user;
+            this.add = false;
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -37,7 +47,7 @@ namespace BolsheskApp
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.GoBack();
         }
     }
 }

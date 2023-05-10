@@ -24,10 +24,26 @@ namespace BolsheskApp
         {
             InitializeComponent();
         }
+        public void Filter()
+        {
+            List<Schedule> shedules = BolsheskDBEntities.GetContext().Schedule.ToList();
 
+            if (tBoxSearch.Text.Length > 0)
+            {
+                string src = tBoxSearch.Text.ToLower();
+                shedules = shedules.Where(e => e.Name.ToLower().Contains(src) ||
+                                              e.Event.Name.ToLower().Contains(src) ||
+                                              e.Description.ToString().ToString().ToLower().Contains(src) ||
+                                              e.User.LastName.ToLower().Contains(src) ||
+                                              e.Status.Name.ToLower().Contains(src)
+                                              ).ToList();
+            }
+
+            dataGrid.ItemsSource = shedules;
+        }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-
+            Filter();
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
@@ -37,27 +53,40 @@ namespace BolsheskApp
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
-
+            if (dataGrid.SelectedItem == null)
+                return;
         }
 
         private void btnDelet_Click(object sender, RoutedEventArgs e)
         {
+            if (dataGrid.SelectedItem == null)
+                return;
 
+            Schedule schedule = dataGrid.SelectedItem as Schedule;
+            try
+            {
+                BolsheskDBEntities.GetContext().Schedule.Remove(schedule);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            Filter();
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.GoBack();
         }
 
         private void tBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            Filter();
         }
 
         private void btnReset_Click(object sender, RoutedEventArgs e)
         {
-
+            tBoxSearch.Text = "";
         }
     }
 }

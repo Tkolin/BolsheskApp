@@ -20,11 +20,20 @@ namespace BolsheskApp
     /// </summary>
     public partial class AddEditPlasePage : Page
     {
+        Place place;
+        bool add;
         public AddEditPlasePage()
         {
             InitializeComponent();
+            this.place = new Place();
+            this.add = true;
         }
-
+        public AddEditPlasePage(Place place)
+        {
+            InitializeComponent();
+            this.place = place;
+            this.add = false;
+        }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
 
@@ -37,7 +46,7 @@ namespace BolsheskApp
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.GoBack();
         }
     }
 }

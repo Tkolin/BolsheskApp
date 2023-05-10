@@ -11,7 +11,7 @@
     <Grid>
         <StackPanel Orientation="Horizontal">
             <StackPanel Orientation="Vertical" Width="200" Margin="10" Height="400">
-                <TextBlock Margin="0,0,0,40" HorizontalAlignment="Center" FontSize="16" FontWeight="ExtraBold">Загаловок</TextBlock>
+                <TextBlock Margin="0,0,0,40" HorizontalAlignment="Center" FontSize="16" FontWeight="ExtraBold">Площадки</TextBlock>
                 <Button Content="Добавить" x:Name="btnAdd" Click="btnAdd_Click" Margin="20,5,20,5"/>
                 <Button Content="Изменить" x:Name="btnEdit" Click="btnEdit_Click" Margin="20,5,20,5"/>
                 <Button Content="Удалить" x:Name="btnDelet" Click="btnDelet_Click" Margin="20,5,20,5"/>
@@ -23,8 +23,14 @@
                     <TextBox Width="342" Margin="2" x:Name="tBoxSearch" TextChanged="tBoxSearch_TextChanged"/>
                     <Button Content="Сбросить" Margin="2" x:Name="btnReset" Click="btnReset_Click"/>
                 </StackPanel>
-                <DataGrid Height="370" x:Name="dataGrid">
-
+                <DataGrid Height="370" x:Name="dataGrid" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Название" Binding="{Binding Items.Name}" Width="3*"/>
+                        <DataGridTextColumn Header="Тип площадки" Binding="{Binding DateOfReceipt}" Width="3*"/>
+                        <DataGridTextColumn Header="Площадь" Binding="{Binding Items.Name}" Width="3*"/>
+                        <DataGridTextColumn Header="Адресс" Binding="{Binding Items.Name}" Width="3*"/>
+                        <DataGridTextColumn Header="Вместительность" Binding="{Binding Items.Name}" Width="3*"/>
+                    </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>
         </StackPanel>
