@@ -9,7 +9,7 @@
       Title="AddEditEventPage" Loaded="Page_Loaded">
 
     <Grid>
-        <StackPanel Orientation="Vertical" Margin="250,10,222,10">
+        <StackPanel Orientation="Vertical" Margin="250,10,197,10">
             <TextBlock Margin="0,0,0,10" HorizontalAlignment="Center" FontSize="20" FontWeight="ExtraBold">Редактирование мироприятия</TextBlock>
             <TextBlock Text="Название" Margin="5,10,0,0" />
             <TextBox x:Name="tb1"/>

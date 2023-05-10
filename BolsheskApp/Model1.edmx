@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище BolsheskDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище BolsheskDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Event">
           <Key>
             <PropertyRef Name="ID" />
@@ -256,11 +256,58 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BolsheskDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="BolsheskDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Event" EntityType="BolsheskDBModel.Event" />
+          <EntitySet Name="Place" EntityType="BolsheskDBModel.Place" />
+          <EntitySet Name="Post" EntityType="BolsheskDBModel.Post" />
+          <EntitySet Name="Role" EntityType="BolsheskDBModel.Role" />
+          <EntitySet Name="Schedule" EntityType="BolsheskDBModel.Schedule" />
+          <EntitySet Name="Status" EntityType="BolsheskDBModel.Status" />
+          <EntitySet Name="sysdiagrams" EntityType="BolsheskDBModel.sysdiagrams" />
+          <EntitySet Name="TypeEvent" EntityType="BolsheskDBModel.TypeEvent" />
+          <EntitySet Name="TypePlace" EntityType="BolsheskDBModel.TypePlace" />
+          <EntitySet Name="User" EntityType="BolsheskDBModel.User" />
+          <AssociationSet Name="FK_Event_Place" Association="BolsheskDBModel.FK_Event_Place">
+            <End Role="Place" EntitySet="Place" />
+            <End Role="Event" EntitySet="Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Event_TypeEvent" Association="BolsheskDBModel.FK_Event_TypeEvent">
+            <End Role="TypeEvent" EntitySet="TypeEvent" />
+            <End Role="Event" EntitySet="Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Event_User" Association="BolsheskDBModel.FK_Event_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Event" EntitySet="Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Event" Association="BolsheskDBModel.FK_Schedule_Event">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Place_TypePlace" Association="BolsheskDBModel.FK_Place_TypePlace">
+            <End Role="TypePlace" EntitySet="TypePlace" />
+            <End Role="Place" EntitySet="Place" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Post" Association="BolsheskDBModel.FK_User_Post">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Role" Association="BolsheskDBModel.FK_User_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Status" Association="BolsheskDBModel.FK_Schedule_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_User" Association="BolsheskDBModel.FK_Schedule_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="Event">
           <Key>
             <PropertyRef Name="ID" />
@@ -274,10 +321,10 @@
           <Property Name="OrganizerID" Type="Int32" />
           <Property Name="PlaceID" Type="Int32" />
           <Property Name="Quantity" Type="Int32" />
-          <NavigationProperty Name="Place" Relationship="Self.FK_Event_Place" FromRole="Event" ToRole="Place" />
-          <NavigationProperty Name="TypeEvent" Relationship="Self.FK_Event_TypeEvent" FromRole="Event" ToRole="TypeEvent" />
-          <NavigationProperty Name="User" Relationship="Self.FK_Event_User" FromRole="Event" ToRole="User" />
-          <NavigationProperty Name="Schedule" Relationship="Self.FK_Schedule_Event" FromRole="Event" ToRole="Schedule" />
+          <NavigationProperty Name="Place" Relationship="BolsheskDBModel.FK_Event_Place" FromRole="Event" ToRole="Place" />
+          <NavigationProperty Name="TypeEvent" Relationship="BolsheskDBModel.FK_Event_TypeEvent" FromRole="Event" ToRole="TypeEvent" />
+          <NavigationProperty Name="User" Relationship="BolsheskDBModel.FK_Event_User" FromRole="Event" ToRole="User" />
+          <NavigationProperty Name="Schedule" Relationship="BolsheskDBModel.FK_Schedule_Event" FromRole="Event" ToRole="Schedule" />
         </EntityType>
         <EntityType Name="Place">
           <Key>
@@ -289,8 +336,8 @@
           <Property Name="Area" Type="Double" />
           <Property Name="Capacity" Type="Int32" />
           <Property Name="Adress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Event" Relationship="Self.FK_Event_Place" FromRole="Place" ToRole="Event" />
-          <NavigationProperty Name="TypePlace" Relationship="Self.FK_Place_TypePlace" FromRole="Place" ToRole="TypePlace" />
+          <NavigationProperty Name="Event" Relationship="BolsheskDBModel.FK_Event_Place" FromRole="Place" ToRole="Event" />
+          <NavigationProperty Name="TypePlace" Relationship="BolsheskDBModel.FK_Place_TypePlace" FromRole="Place" ToRole="TypePlace" />
         </EntityType>
         <EntityType Name="Post">
           <Key>
@@ -298,7 +345,7 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="User" Relationship="Self.FK_User_Post" FromRole="Post" ToRole="User" />
+          <NavigationProperty Name="User" Relationship="BolsheskDBModel.FK_User_Post" FromRole="Post" ToRole="User" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -306,7 +353,7 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="Название" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="User" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
+          <NavigationProperty Name="User" Relationship="BolsheskDBModel.FK_User_Role" FromRole="Role" ToRole="User" />
         </EntityType>
         <EntityType Name="Schedule">
           <Key>
@@ -319,9 +366,9 @@
           <Property Name="Date" Type="DateTime" Precision="3" />
           <Property Name="ResponsibleID" Type="Int32" />
           <Property Name="StatusID" Type="Int32" />
-          <NavigationProperty Name="Event" Relationship="Self.FK_Schedule_Event" FromRole="Schedule" ToRole="Event" />
-          <NavigationProperty Name="Status" Relationship="Self.FK_Schedule_Status" FromRole="Schedule" ToRole="Status" />
-          <NavigationProperty Name="User" Relationship="Self.FK_Schedule_User" FromRole="Schedule" ToRole="User" />
+          <NavigationProperty Name="Event" Relationship="BolsheskDBModel.FK_Schedule_Event" FromRole="Schedule" ToRole="Event" />
+          <NavigationProperty Name="Status" Relationship="BolsheskDBModel.FK_Schedule_Status" FromRole="Schedule" ToRole="Status" />
+          <NavigationProperty Name="User" Relationship="BolsheskDBModel.FK_Schedule_User" FromRole="Schedule" ToRole="User" />
         </EntityType>
         <EntityType Name="Status">
           <Key>
@@ -329,13 +376,13 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Schedule" Relationship="Self.FK_Schedule_Status" FromRole="Status" ToRole="Schedule" />
+          <NavigationProperty Name="Schedule" Relationship="BolsheskDBModel.FK_Schedule_Status" FromRole="Status" ToRole="Schedule" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
           </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="principal_id" Type="Int32" Nullable="false" />
           <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="Int32" />
@@ -347,7 +394,7 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Event" Relationship="Self.FK_Event_TypeEvent" FromRole="TypeEvent" ToRole="Event" />
+          <NavigationProperty Name="Event" Relationship="BolsheskDBModel.FK_Event_TypeEvent" FromRole="TypeEvent" ToRole="Event" />
         </EntityType>
         <EntityType Name="TypePlace">
           <Key>
@@ -355,7 +402,7 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Place" Relationship="Self.FK_Place_TypePlace" FromRole="TypePlace" ToRole="Place" />
+          <NavigationProperty Name="Place" Relationship="BolsheskDBModel.FK_Place_TypePlace" FromRole="TypePlace" ToRole="Place" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -369,14 +416,14 @@
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="PostID" Type="Int32" />
-          <NavigationProperty Name="Event" Relationship="Self.FK_Event_User" FromRole="User" ToRole="Event" />
-          <NavigationProperty Name="Post" Relationship="Self.FK_User_Post" FromRole="User" ToRole="Post" />
-          <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
-          <NavigationProperty Name="Schedule" Relationship="Self.FK_Schedule_User" FromRole="User" ToRole="Schedule" />
+          <NavigationProperty Name="Event" Relationship="BolsheskDBModel.FK_Event_User" FromRole="User" ToRole="Event" />
+          <NavigationProperty Name="Post" Relationship="BolsheskDBModel.FK_User_Post" FromRole="User" ToRole="Post" />
+          <NavigationProperty Name="Role" Relationship="BolsheskDBModel.FK_User_Role" FromRole="User" ToRole="Role" />
+          <NavigationProperty Name="Schedule" Relationship="BolsheskDBModel.FK_Schedule_User" FromRole="User" ToRole="Schedule" />
         </EntityType>
         <Association Name="FK_Event_Place">
-          <End Role="Place" Type="Self.Place" Multiplicity="0..1" />
-          <End Role="Event" Type="Self.Event" Multiplicity="*" />
+          <End Type="BolsheskDBModel.Place" Role="Place" Multiplicity="0..1" />
+          <End Type="BolsheskDBModel.Event" Role="Event" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Place">
               <PropertyRef Name="ID" />
@@ -387,8 +434,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Event_TypeEvent">
-          <End Role="TypeEvent" Type="Self.TypeEvent" Multiplicity="0..1" />
-          <End Role="Event" Type="Self.Event" Multiplicity="*" />
+          <End Type="BolsheskDBModel.TypeEvent" Role="TypeEvent" Multiplicity="0..1" />
+          <End Type="BolsheskDBModel.Event" Role="Event" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TypeEvent">
               <PropertyRef Name="ID" />
@@ -399,8 +446,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Event_User">
-          <End Role="User" Type="Self.User" Multiplicity="0..1" />
-          <End Role="Event" Type="Self.Event" Multiplicity="*" />
+          <End Type="BolsheskDBModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="BolsheskDBModel.Event" Role="Event" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
               <PropertyRef Name="ID" />
@@ -411,8 +458,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Schedule_Event">
-          <End Role="Event" Type="Self.Event" Multiplicity="0..1" />
-          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <End Type="BolsheskDBModel.Event" Role="Event" Multiplicity="0..1" />
+          <End Type="BolsheskDBModel.Schedule" Role="Schedule" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Event">
               <PropertyRef Name="ID" />
@@ -423,8 +470,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Place_TypePlace">
-          <End Role="TypePlace" Type="Self.TypePlace" Multiplicity="0..1" />
-          <End Role="Place" Type="Self.Place" Multiplicity="*" />
+          <End Type="BolsheskDBModel.TypePlace" Role="TypePlace" Multiplicity="0..1" />
+          <End Type="BolsheskDBModel.Place" Role="Place" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TypePlace">
               <PropertyRef Name="ID" />
@@ -435,8 +482,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_User_Post">
-          <End Role="Post" Type="Self.Post" Multiplicity="0..1" />
-          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <End Type="BolsheskDBModel.Post" Role="Post" Multiplicity="0..1" />
+          <End Type="BolsheskDBModel.User" Role="User" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Post">
               <PropertyRef Name="ID" />
@@ -447,8 +494,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_User_Role">
-          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
-          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <End Type="BolsheskDBModel.Role" Role="Role" Multiplicity="0..1" />
+          <End Type="BolsheskDBModel.User" Role="User" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Role">
               <PropertyRef Name="ID" />
@@ -459,8 +506,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Schedule_Status">
-          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
-          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <End Type="BolsheskDBModel.Status" Role="Status" Multiplicity="0..1" />
+          <End Type="BolsheskDBModel.Schedule" Role="Schedule" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Status">
               <PropertyRef Name="ID" />
@@ -471,8 +518,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Schedule_User">
-          <End Role="User" Type="Self.User" Multiplicity="0..1" />
-          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <End Type="BolsheskDBModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="BolsheskDBModel.Schedule" Role="Schedule" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
               <PropertyRef Name="ID" />
@@ -482,54 +529,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="BolsheskDBEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Event" EntityType="Self.Event" />
-          <EntitySet Name="Place" EntityType="Self.Place" />
-          <EntitySet Name="Post" EntityType="Self.Post" />
-          <EntitySet Name="Role" EntityType="Self.Role" />
-          <EntitySet Name="Schedule" EntityType="Self.Schedule" />
-          <EntitySet Name="Status" EntityType="Self.Status" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-          <EntitySet Name="TypeEvent" EntityType="Self.TypeEvent" />
-          <EntitySet Name="TypePlace" EntityType="Self.TypePlace" />
-          <EntitySet Name="User" EntityType="Self.User" />
-          <AssociationSet Name="FK_Event_Place" Association="Self.FK_Event_Place">
-            <End Role="Place" EntitySet="Place" />
-            <End Role="Event" EntitySet="Event" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Event_TypeEvent" Association="Self.FK_Event_TypeEvent">
-            <End Role="TypeEvent" EntitySet="TypeEvent" />
-            <End Role="Event" EntitySet="Event" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Event_User" Association="Self.FK_Event_User">
-            <End Role="User" EntitySet="User" />
-            <End Role="Event" EntitySet="Event" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Schedule_Event" Association="Self.FK_Schedule_Event">
-            <End Role="Event" EntitySet="Event" />
-            <End Role="Schedule" EntitySet="Schedule" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Place_TypePlace" Association="Self.FK_Place_TypePlace">
-            <End Role="TypePlace" EntitySet="TypePlace" />
-            <End Role="Place" EntitySet="Place" />
-          </AssociationSet>
-          <AssociationSet Name="FK_User_Post" Association="Self.FK_User_Post">
-            <End Role="Post" EntitySet="Post" />
-            <End Role="User" EntitySet="User" />
-          </AssociationSet>
-          <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
-            <End Role="Role" EntitySet="Role" />
-            <End Role="User" EntitySet="User" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Schedule_Status" Association="Self.FK_Schedule_Status">
-            <End Role="Status" EntitySet="Status" />
-            <End Role="Schedule" EntitySet="Schedule" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Schedule_User" Association="Self.FK_Schedule_User">
-            <End Role="User" EntitySet="User" />
-            <End Role="Schedule" EntitySet="Schedule" />
-          </AssociationSet>
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -539,105 +538,105 @@
           <EntitySetMapping Name="Event">
             <EntityTypeMapping TypeName="BolsheskDBModel.Event">
               <MappingFragment StoreEntitySet="Event">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="DateStart" ColumnName="DateStart" />
-                <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
-                <ScalarProperty Name="TypeEventID" ColumnName="TypeEventID" />
-                <ScalarProperty Name="OrganizerID" ColumnName="OrganizerID" />
-                <ScalarProperty Name="PlaceID" ColumnName="PlaceID" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="PlaceID" ColumnName="PlaceID" />
+                <ScalarProperty Name="OrganizerID" ColumnName="OrganizerID" />
+                <ScalarProperty Name="TypeEventID" ColumnName="TypeEventID" />
+                <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+                <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Place">
             <EntityTypeMapping TypeName="BolsheskDBModel.Place">
               <MappingFragment StoreEntitySet="Place">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="TypePlaceID" ColumnName="TypePlaceID" />
-                <ScalarProperty Name="Area" ColumnName="Area" />
-                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
                 <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="TypePlaceID" ColumnName="TypePlaceID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Post">
             <EntityTypeMapping TypeName="BolsheskDBModel.Post">
               <MappingFragment StoreEntitySet="Post">
-                <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Role">
             <EntityTypeMapping TypeName="BolsheskDBModel.Role">
               <MappingFragment StoreEntitySet="Role">
-                <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Название" ColumnName="Название" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Schedule">
             <EntityTypeMapping TypeName="BolsheskDBModel.Schedule">
               <MappingFragment StoreEntitySet="Schedule">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="EveintID" ColumnName="EveintID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="ResponsibleID" ColumnName="ResponsibleID" />
                 <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+                <ScalarProperty Name="ResponsibleID" ColumnName="ResponsibleID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="EveintID" ColumnName="EveintID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Status">
             <EntityTypeMapping TypeName="BolsheskDBModel.Status">
               <MappingFragment StoreEntitySet="Status">
-                <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="BolsheskDBModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TypeEvent">
             <EntityTypeMapping TypeName="BolsheskDBModel.TypeEvent">
               <MappingFragment StoreEntitySet="TypeEvent">
-                <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TypePlace">
             <EntityTypeMapping TypeName="BolsheskDBModel.TypePlace">
               <MappingFragment StoreEntitySet="TypePlace">
-                <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="User">
             <EntityTypeMapping TypeName="BolsheskDBModel.User">
               <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Login" ColumnName="Login" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
                 <ScalarProperty Name="PostID" ColumnName="PostID" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

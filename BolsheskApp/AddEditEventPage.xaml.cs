@@ -20,18 +20,18 @@ namespace BolsheskApp
     /// </summary>
     public partial class AddEditEventPage : Page
     {
-        Event @event;
+        Event _event;
         bool add;
         public AddEditEventPage()
         {
             InitializeComponent();
-            this.@event = new Event();
+            this._event = new Event();
             add = true;
         }
-        public AddEditEventPage(Event @event)
+        public AddEditEventPage(Event _event)
         {
             InitializeComponent();
-            this.@event = @event;
+            this._event = _event;
             add = false;
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -48,14 +48,14 @@ namespace BolsheskApp
 
             if (!add)
             {
-                tb1.Text = @event.Name;
-                tb2.Text = @event.Description;
-                tb3.SelectedDate = @event.DateStart;
-                tb4.SelectedDate = @event.DateEnd;
-                tb5.SelectedItem = @event.TypeEvent;
-                tb6.SelectedItem = @event.User;
-                tb7.SelectedItem = @event.Place;
-                tb8.Text = @event.Quantity.ToString();
+                tb1.Text = _event.Name;
+                tb2.Text = _event.Description;
+                tb3.SelectedDate = _event.DateStart;
+                tb4.SelectedDate = _event.DateEnd;
+                tb5.SelectedItem = _event.TypeEvent;
+                tb6.SelectedItem = _event.User;
+                tb7.SelectedItem = _event.Place;
+                tb8.Text = _event.Quantity.ToString();
             }
         }
 
@@ -63,14 +63,14 @@ namespace BolsheskApp
         {
             try
             {
-                @event.Name = tb1.Text;
-                @event.Description = tb2.Text;
-                @event.DateStart = tb3.SelectedDate;
-                @event.DateEnd = tb4.SelectedDate;
-                @event.TypeEvent = tb5.SelectedItem as TypeEvent;
-                @event.User = tb6.SelectedItem as User;
-                @event.Place = tb7.SelectedItem as Place;
-                @event.Quantity = Convert.ToInt32(tb8.Text);
+                _event.Name = tb1.Text;
+                _event.Description = tb2.Text;
+                _event.DateStart = tb3.SelectedDate;
+                _event.DateEnd = tb4.SelectedDate;
+                _event.TypeEvent = tb5.SelectedItem as TypeEvent;
+                _event.User = tb6.SelectedItem as User;
+                _event.Place = tb7.SelectedItem as Place;
+                _event.Quantity = Convert.ToInt32(tb8.Text);
             }
             catch (Exception ex)
             {
@@ -80,7 +80,7 @@ namespace BolsheskApp
             try
             {
                 if (add)
-                    BolsheskDBEntities.GetContext().Event.Add(@event);
+                    BolsheskDBEntities.GetContext().Event.Add(_event);
                 BolsheskDBEntities.GetContext().SaveChanges();
                 NavigationService.GoBack();
             }

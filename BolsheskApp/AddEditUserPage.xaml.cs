@@ -38,7 +38,7 @@ namespace BolsheskApp
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             tb6.ItemsSource = BolsheskDBEntities.GetContext().Role.ToList();
-            tb6.DisplayMemberPath = "Name";
+            tb6.DisplayMemberPath = "Название";
 
             tb7.ItemsSource = BolsheskDBEntities.GetContext().Post.ToList();
             tb7.DisplayMemberPath = "Name";

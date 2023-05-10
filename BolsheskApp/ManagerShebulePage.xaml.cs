@@ -32,10 +32,13 @@ namespace BolsheskApp
             {
                 string src = tBoxSearch.Text.ToLower();
                 shedules = shedules.Where(e => e.Name.ToLower().Contains(src) ||
-                                              e.Event.Name.ToLower().Contains(src) ||
+                                              (e.Event!= null &&
+                                              e.Event.Name.ToLower().Contains(src)) ||
                                               e.Description.ToString().ToString().ToLower().Contains(src) ||
-                                              e.User.LastName.ToLower().Contains(src) ||
-                                              e.Status.Name.ToLower().Contains(src)
+                                              (e.User!= null &&
+                                              e.User.LastName.ToLower().Contains(src)) ||
+                                              (e.Status!= null &&
+                                              e.Status.Name.ToLower().Contains(src))
                                               ).ToList();
             }
 

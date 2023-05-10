@@ -23,13 +23,13 @@
                     <TextBox Width="342" Margin="2" x:Name="tBoxSearch" TextChanged="tBoxSearch_TextChanged"/>
                     <Button Content="Сбросить" Margin="2" x:Name="btnReset" Click="btnReset_Click"/>
                 </StackPanel>
-                <DataGrid Height="370" x:Name="dataGrid" AutoGenerateColumns="False">
+                <DataGrid Height="338" x:Name="dataGrid" AutoGenerateColumns="False" IsReadOnly="True">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Название" Binding="{Binding Items.Name}" Width="3*"/>
-                        <DataGridTextColumn Header="Тип площадки" Binding="{Binding DateOfReceipt}" Width="3*"/>
-                        <DataGridTextColumn Header="Площадь" Binding="{Binding Items.Name}" Width="3*"/>
-                        <DataGridTextColumn Header="Адресс" Binding="{Binding Items.Name}" Width="3*"/>
-                        <DataGridTextColumn Header="Вместительность" Binding="{Binding Items.Name}" Width="3*"/>
+                        <DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="3*"/>
+                        <DataGridTextColumn Header="Тип площадки" Binding="{Binding TypePlace.Name}" Width="3*"/>
+                        <DataGridTextColumn Header="Площадь" Binding="{Binding Area}" Width="3*"/>
+                        <DataGridTextColumn Header="Адресс" Binding="{Binding Adress}" Width="3*"/>
+                        <DataGridTextColumn Header="Вместительность" Binding="{Binding Capacity}" Width="3*"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>

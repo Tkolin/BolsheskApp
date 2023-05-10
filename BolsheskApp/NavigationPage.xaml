@@ -13,7 +13,7 @@
             <TextBlock Margin="0,0,0,40" HorizontalAlignment="Center" FontSize="16" FontWeight="ExtraBold">Меню</TextBlock>
             <Button Content="Мероприятия" x:Name="btn1" Click="btn1_Click" Margin="20,5,20,5"/>
             <Button Content="Пользователи" x:Name="btn2" Click="btn2_Click" Margin="20,5,20,5"/>
-            <Button Content="План" x:Name="btn33" Click="btn33_Click" Margin="20,5,20,5"/>
+            <Button Content="План" x:Name="btn3" Click="btn33_Click" Margin="20,5,20,5"/>
             <Button Content="Места проведения" x:Name="btn4" Click="btn4_Click" Margin="20,5,20,5"/>
             <Button Content="Назад" x:Name="btnBack" Click="btnBack_Click" Margin="20,20,20,5"  />
         </StackPanel>

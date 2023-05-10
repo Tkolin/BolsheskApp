@@ -19,6 +19,11 @@ namespace BolsheskApp
             : base("name=BolsheskDBEntities")
         {
         }
+    
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            throw new UnintentionalCodeFirstException();
+        }
         private static BolsheskDBEntities _context;
         public static BolsheskDBEntities GetContext()
         {
@@ -26,11 +31,6 @@ namespace BolsheskApp
                 _context = new BolsheskDBEntities();
             return _context;
         }
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            throw new UnintentionalCodeFirstException();
-        }
-    
         public virtual DbSet<Event> Event { get; set; }
         public virtual DbSet<Place> Place { get; set; }
         public virtual DbSet<Post> Post { get; set; }

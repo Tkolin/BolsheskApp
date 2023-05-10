@@ -5,25 +5,25 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="b2c88d8de1c448f4a3ecf7c15bc57bf3" Name="Diagram1">
-        <EntityTypeShape EntityType="BolsheskDBModel.Event" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="BolsheskDBModel.Place" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="BolsheskDBModel.Post" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="BolsheskDBModel.Role" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="BolsheskDBModel.Schedule" Width="1.5" PointX="7.5" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="BolsheskDBModel.Status" Width="1.5" PointX="5.25" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="BolsheskDBModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BolsheskDBModel.TypeEvent" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="BolsheskDBModel.TypePlace" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="BolsheskDBModel.User" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <AssociationConnector Association="BolsheskDBModel.FK_Event_Place" ManuallyRouted="false" />
-        <AssociationConnector Association="BolsheskDBModel.FK_Event_TypeEvent" ManuallyRouted="false" />
-        <AssociationConnector Association="BolsheskDBModel.FK_Event_User" ManuallyRouted="false" />
-        <AssociationConnector Association="BolsheskDBModel.FK_Schedule_Event" ManuallyRouted="false" />
-        <AssociationConnector Association="BolsheskDBModel.FK_Place_TypePlace" ManuallyRouted="false" />
-        <AssociationConnector Association="BolsheskDBModel.FK_User_Post" ManuallyRouted="false" />
-        <AssociationConnector Association="BolsheskDBModel.FK_User_Role" ManuallyRouted="false" />
-        <AssociationConnector Association="BolsheskDBModel.FK_Schedule_Status" ManuallyRouted="false" />
-        <AssociationConnector Association="BolsheskDBModel.FK_Schedule_User" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BolsheskDBModel.Event" Width="1.5" PointX="5.25" PointY="1" />
+        <EntityTypeShape EntityType="BolsheskDBModel.Place" Width="1.5" PointX="3" PointY="8.5" />
+        <EntityTypeShape EntityType="BolsheskDBModel.Post" Width="1.5" PointX="0.75" PointY="6" />
+        <EntityTypeShape EntityType="BolsheskDBModel.Role" Width="1.5" PointX="0.75" PointY="2" />
+        <EntityTypeShape EntityType="BolsheskDBModel.Schedule" Width="1.5" PointX="7.5" PointY="1.25" />
+        <EntityTypeShape EntityType="BolsheskDBModel.Status" Width="1.5" PointX="5.25" PointY="6" />
+        <EntityTypeShape EntityType="BolsheskDBModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="5.75" />
+        <EntityTypeShape EntityType="BolsheskDBModel.TypeEvent" Width="1.5" PointX="3" PointY="6.125" />
+        <EntityTypeShape EntityType="BolsheskDBModel.TypePlace" Width="1.5" PointX="0.75" PointY="8.875" />
+        <EntityTypeShape EntityType="BolsheskDBModel.User" Width="1.5" PointX="3" PointY="1.125" />
+        <AssociationConnector Association="BolsheskDBModel.FK_Event_Place" />
+        <AssociationConnector Association="BolsheskDBModel.FK_Event_TypeEvent" />
+        <AssociationConnector Association="BolsheskDBModel.FK_Event_User" />
+        <AssociationConnector Association="BolsheskDBModel.FK_Schedule_Event" />
+        <AssociationConnector Association="BolsheskDBModel.FK_Place_TypePlace" />
+        <AssociationConnector Association="BolsheskDBModel.FK_User_Post" />
+        <AssociationConnector Association="BolsheskDBModel.FK_User_Role" />
+        <AssociationConnector Association="BolsheskDBModel.FK_Schedule_Status" />
+        <AssociationConnector Association="BolsheskDBModel.FK_Schedule_User" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -36,10 +36,12 @@ namespace BolsheskApp
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-           //выход
+            Application.Current.Shutdown();
         }
         private User GetRole(string login, string pass)
         {
+            if (BolsheskDBEntities.GetContext().User.Where(u => u.Login == login && u.Password == pass).Count() == 0)
+                return null;
             return BolsheskDBEntities.GetContext().User.Where(u => u.Login == login && u.Password == pass).First();
         }
     }

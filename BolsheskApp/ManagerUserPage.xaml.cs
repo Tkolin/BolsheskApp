@@ -55,6 +55,9 @@ namespace BolsheskApp
         {
             if (dataGrid.SelectedItem == null)
                 return;
+            User user = dataGrid.SelectedItem as User;
+            NavigationService.Navigate(new AddEditUserPage(user));
+
         }
 
         private void btnDelet_Click(object sender, RoutedEventArgs e)

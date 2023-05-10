@@ -14,11 +14,17 @@
             <StackPanel Width="355"  Margin="50,0,50,0">
                 <TextBlock Margin="0,0,0,50" HorizontalAlignment="Center" FontSize="20" FontWeight="ExtraBold">План</TextBlock>
                 <TextBlock Text="Мироприятие" Margin="5,10,0,0" />
-                <ComboBox x:Name="tm1" SelectionChanged="tm1_SelectionChanged"/>
+                    <ComboBox x:Name="tm1" SelectionChanged="tm1_SelectionChanged"/>
                 <TextBlock Text="Список задач" Margin="5,10,0,0" />
-                <DataGrid x:Name="tm2" Height="151" SelectionChanged="tm2_SelectionChanged">
-                    
-                </DataGrid>
+                <DataGrid x:Name="tm2" Height="151" SelectionChanged="tm2_SelectionChanged" IsReadOnly="True" FontSize="11" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="3*"/>
+                            <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="3*"/>
+                            <DataGridTextColumn Header="Дата" Binding="{Binding Date}" Width="2*"/>
+                            <DataGridTextColumn Header="Ответственный" Binding="{Binding User.LastName}" Width="3*"/>
+                            <DataGridTextColumn Header="Статус" Binding="{Binding Status.Name}" Width="2*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
                     <Button Content="Добавить" x:Name="btnAddQuast" Click="btnAddQuast_Click" Margin="5" Width="100"/>
                     <Button Content="Удалить" x:Name="btnDel" Click="btnDel_Click" Margin="5" Width="100" />
                 </StackPanel>
@@ -35,7 +41,7 @@
                         </StackPanel>
                         <StackPanel Width="140">
                             <TextBlock Text="Дата выполнения" Margin="5,10,0,0" />
-                            <DatePicker x:Name="tb4"/>
+                            <DatePicker x:Name="tb4" Width="127"/>
                         </StackPanel>
                     </StackPanel>
 

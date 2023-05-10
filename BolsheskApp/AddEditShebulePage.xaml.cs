@@ -22,26 +22,26 @@ namespace BolsheskApp
     {
         Schedule schedule;
         bool add;
-        Event @event;
+        Event _event;
         public AddEditShebulePage()
         {
             InitializeComponent();
             this.schedule = new Schedule();
-            Event @event = null;
+            Event _event = null;
             this.add = true;
         }
         public AddEditShebulePage(Schedule schedule)
         {
             InitializeComponent();
             this.schedule = schedule;
-            this.@event = schedule.Event;
+            this._event = schedule.Event;
             this.add = false;
         }
 
-        public AddEditShebulePage(Event @event)
+        public AddEditShebulePage(Event _event)
         {
             InitializeComponent();
-            this.@event = @event;
+            this._event = _event;
             this.schedule = new Schedule();
             this.add = true;
         }
@@ -53,7 +53,8 @@ namespace BolsheskApp
             tb5.ItemsSource = BolsheskDBEntities.GetContext().User.ToList();
             tb5.DisplayMemberPath = "LastName";
 
-
+            tm1.ItemsSource = BolsheskDBEntities.GetContext().Event.ToList();
+            tm1.DisplayMemberPath = "Name";
 
             tm2.ItemsSource = BolsheskDBEntities.GetContext().Schedule.ToList();
             tm2.DisplayMemberPath = "LastName";
@@ -71,13 +72,18 @@ namespace BolsheskApp
         }
         private void tm1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(tm1.SelectedItem == null)
+            //if(tm1.SelectedItem == null)
+            //    return;@event
+            
+            _event = tm1.SelectedItem as Event;
+            UpdateGrid();
+        }
+        private void UpdateGrid()
+        {
+            if (_event == null)
                 return;
-
-            @event = tm1.SelectedItem as Event;
-
-            tm1.ItemsSource = BolsheskDBEntities.GetContext().Schedule
-                .Where(g => g.Event.ID == @event.ID).ToList();
+            List<Schedule> schedules = BolsheskDBEntities.GetContext().Schedule.ToList();
+            tm2.ItemsSource = schedules.Where(g => g.Event != null && g.Event.ID == _event.ID).ToList();
         }
         private void tm2_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -135,6 +141,7 @@ namespace BolsheskApp
                 MessageBox.Show("Ошибка!", ex.Message);
 
             }
+            UpdateGrid();
         }
 
 
@@ -158,6 +165,7 @@ namespace BolsheskApp
                 MessageBox.Show("Ошибка!", ex.Message);
 
             }
+            UpdateGrid();
         }
 
 
@@ -165,7 +173,6 @@ namespace BolsheskApp
         {
             NavigationService.GoBack();
         }
-
 
     }
 }

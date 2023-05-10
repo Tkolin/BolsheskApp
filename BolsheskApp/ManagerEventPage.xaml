@@ -24,20 +24,20 @@
                     <TextBox Width="342" Margin="2" x:Name="tBoxSearch" TextChanged="tBoxSearch_TextChanged"/>
                     <Button Content="Сбросить" Margin="2" x:Name="btnReset" Click="btnReset_Click"/>
                 </StackPanel>
-                <DataGrid Height="366" x:Name="dataGrid" AutoGenerateColumns="False" FontSize="8">
+                <DataGrid Height="344" x:Name="dataGrid" AutoGenerateColumns="False" IsReadOnly="True" FontSize="8">
                     <DataGrid.Columns>
 
-                        <DataGridTextColumn Header="Название" Binding="{Binding Items.Name}" Width="3*"/>
-                        <DataGridTextColumn Header="Описание" Binding="{Binding DateOfReceipt}" Width="3*"/>
-                        <DataGridTextColumn Header="Дата начала" Binding="{Binding Items.Name}" Width="3*"/>
-                        <DataGridTextColumn Header="Дата начала" Binding="{Binding Items.Name}" Width="3*"/>
+                        <DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="3*"/>
+                        <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="3*"/>
+                        <DataGridTextColumn Header="Дата начала" Binding="{Binding DateStart}" Width="3*"/>
+                        <DataGridTextColumn Header="Дата начала" Binding="{Binding DateEnd}" Width="3*"/>
 
-                        <DataGridTextColumn Header="Организатор" Binding="{Binding Items.Name}" Width="3*"/>
-                        <DataGridTextColumn Header="Тип мипроприятия" Binding="{Binding Items.Name}" Width="3*"/>
-                        <DataGridTextColumn Header="Расположение" Binding="{Binding Items.Name}" Width="3*"/>
-                        <DataGridTextColumn Header="Адресс" Binding="{Binding Items.Name}" Width="3*"/>
+                        <DataGridTextColumn Header="Организатор" Binding="{Binding User.LastName}" Width="3*"/>
+                        <DataGridTextColumn Header="Тип мипроприятия" Binding="{Binding TypeEvent.Name}" Width="3*"/>
+                        <DataGridTextColumn Header="Расположение" Binding="{Binding Place.Name}" Width="3*"/>
+                        <DataGridTextColumn Header="Адресс" Binding="{Binding Place.Adress}" Width="3*"/>
 
-                        <DataGridTextColumn Header="Стоимость" Binding="{Binding Items.Name}" Width="3*"/>
+                        <DataGridTextColumn Header="Стоимость" Binding="{Binding Quantity}" Width="3*"/>
 
                     </DataGrid.Columns>
                 </DataGrid>

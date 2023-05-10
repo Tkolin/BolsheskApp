@@ -79,10 +79,10 @@ namespace BolsheskApp
             if (dataGrid.SelectedItem == null)
                 return;
 
-            Event @event = dataGrid.SelectedItem as Event;
+            Event _event = dataGrid.SelectedItem as Event;
             try
             {
-                BolsheskDBEntities.GetContext().Event.Remove(@event);
+                BolsheskDBEntities.GetContext().Event.Remove(_event);
                 BolsheskDBEntities.GetContext().SaveChanges();
             }
             catch (Exception ex)
@@ -99,7 +99,7 @@ namespace BolsheskApp
 
         private void btnEditQuast_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AddEditShebulePage(dataGrid.SelectedItem as Event);
+            NavigationService.Navigate(new AddEditShebulePage(dataGrid.SelectedItem as Event));
 
         }
     }

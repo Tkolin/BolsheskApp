@@ -32,32 +32,36 @@ namespace BolsheskApp
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-
+            if(user.RoleID == 2)
+            {
+                btn2.Visibility = Visibility.Collapsed;
+                btn3.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void btn1_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new ManagerEventPage());
         }
 
         private void btn2_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new ManagerUserPage());
         }
 
         private void btn33_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new ManagerShebulePage());
         }
 
         private void btn4_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new ManagerPlasePage());
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.GoBack();
         }
     }
 }
