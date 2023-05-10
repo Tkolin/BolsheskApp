@@ -64,5 +64,10 @@ namespace BolsheskApp
         {
 
         }
+
+        private void btnEditQuast_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

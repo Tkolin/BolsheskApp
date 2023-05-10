@@ -9,20 +9,18 @@
       Title="AddEditPlasePage" Loaded="Page_Loaded">
 
     <Grid>
-        <StackPanel Orientation="Vertical" Width="300" Margin="10">
-            <TextBlock Margin="0,0,0,50" HorizontalAlignment="Center" FontSize="20" FontWeight="ExtraBold">Загаловок</TextBlock>
-            <TextBlock Text="Текст" Margin="5,10,0,0" />
+        <StackPanel Orientation="Vertical" Margin="250,10,188,10">
+            <TextBlock Margin="0,0,0,30" HorizontalAlignment="Center" FontSize="20" FontWeight="ExtraBold">Редактирование мест проведения</TextBlock>
+            <TextBlock Text="Название" Margin="5,10,0,0" />
             <TextBox x:Name="tb1"/>
-            <TextBlock Text="Текст" Margin="5,10,0,0" />
-            <TextBox x:Name="tb2"/>
-            <TextBlock Text="Текст" Margin="5,10,0,0" />
+            <TextBlock Text="Тип площадки" Margin="5,10,0,0" />
+            <ComboBox x:Name="tb2"/>
+            <TextBlock Text="Площадь" Margin="5,10,0,0" />
             <TextBox x:Name="tb3"/>
-            <TextBlock Text="Текст" Margin="5,10,0,0" />
+            <TextBlock Text="Адресс" Margin="5,10,0,0" />
             <TextBox x:Name="tb4"/>
-            <TextBlock Text="Текст" Margin="5,10,0,0" />
+            <TextBlock Text="Доступное кол-во посетителей" Margin="5,10,0,0" />
             <TextBox x:Name="tb5"/>
-            <TextBlock Text="Текст" Margin="5,10,0,0" />
-            <TextBox x:Name="tb6"/>
             <Button Content="Сохранить" x:Name="btnSave" Click="btnSave_Click" Margin="5" Width="100"/>
             <Button Content="Назад" x:Name="btnBack" Click="btnBack_Click" Margin="5" Width="100" />
         </StackPanel>

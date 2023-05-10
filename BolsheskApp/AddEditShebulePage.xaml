@@ -9,20 +9,45 @@
       Title="AddEditShebulePage" Loaded="Page_Loaded">
 
     <Grid>
-        <StackPanel Orientation="Vertical" Width="300" Margin="10">
-            <TextBlock Margin="0,0,0,50" HorizontalAlignment="Center" FontSize="20" FontWeight="ExtraBold">Загаловок</TextBlock>
-            <TextBlock Text="Текст" Margin="5,10,0,0" />
-            <TextBox x:Name="tb1"/>
-            <TextBlock Text="Текст" Margin="5,10,0,0" />
-            <TextBox x:Name="tb2"/>
-            <TextBlock Text="Текст" Margin="5,10,0,0" />
-            <TextBox x:Name="tb3"/>
-            <TextBlock Text="Текст" Margin="5,10,0,0" />
-            <TextBox x:Name="tb4"/>
-            <TextBlock Text="Текст" Margin="5,10,0,0" />
-            <TextBox x:Name="tb5"/>
-            <TextBlock Text="Текст" Margin="5,10,0,0" />
-            <TextBox x:Name="tb6"/>
+        <StackPanel Orientation="Vertical">
+        <StackPanel Orientation="Horizontal"  Margin="10">
+            <StackPanel Width="355"  Margin="50,0,50,0">
+                <TextBlock Margin="0,0,0,50" HorizontalAlignment="Center" FontSize="20" FontWeight="ExtraBold">План</TextBlock>
+                <TextBlock Text="Мироприятие" Margin="5,10,0,0" />
+                <ComboBox x:Name="tm1"/>
+                <TextBlock Text="Список задач" Margin="5,10,0,0" />
+                <DataGrid x:Name="tm2" Height="151">
+                    
+                </DataGrid>
+                    <Button Content="Добавить" x:Name="btnAddQuast" Click="btnAddQuast_Click" Margin="5" Width="100"/>
+                    <Button Content="Удалить" x:Name="btnDel" Click="btnDel_Click" Margin="5" Width="100" />
+                </StackPanel>
+            <StackPanel Width="301">
+                <TextBlock Margin="0,0,0,50" HorizontalAlignment="Center" FontSize="20" FontWeight="ExtraBold">Описание задачи</TextBlock>
+                <TextBlock Text="Название" Margin="5,10,0,0" />
+                <TextBox x:Name="tb1"/>
+                <TextBlock Text="Описание" Margin="5,10,0,0" />
+                <TextBox x:Name="tb2"/>
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Margin="0,0,10,0" Width="151">
+                            <TextBlock Text="Статус" Margin="5,10,0,0" />
+                            <ComboBox x:Name="tb4"/>
+                        </StackPanel>
+                        <StackPanel Width="140">
+                            <TextBlock Text="Дата выполнения" Margin="5,10,0,0" />
+                            <DatePicker x:Name="tb3"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                <TextBlock Text="Ответственный" Margin="5,10,0,0" />
+                <TextBox x:Name="tb5"/>
+
+                <TextBlock Text="Текст" Margin="5,10,0,0" />
+                <TextBox x:Name="tb6"/>
+                <Button Content="Сохранить" x:Name="btnSaveQuas" Click="btnSaveQuas_Click" Margin="5" Width="100"/>
+            </StackPanel>
+
+        </StackPanel>
             <Button Content="Сохранить" x:Name="btnSave" Click="btnSave_Click" Margin="5" Width="100"/>
             <Button Content="Назад" x:Name="btnBack" Click="btnBack_Click" Margin="5" Width="100" />
         </StackPanel>

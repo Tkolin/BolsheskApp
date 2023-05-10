@@ -9,20 +9,34 @@
       Title="AddEditEventPage" Loaded="Page_Loaded">
 
     <Grid>
-        <StackPanel Orientation="Vertical" Width="300" Margin="10">
-            <TextBlock Margin="0,0,0,50" HorizontalAlignment="Center" FontSize="20" FontWeight="ExtraBold">Загаловок</TextBlock>
-            <TextBlock Text="Текст" Margin="5,10,0,0" />
+        <StackPanel Orientation="Vertical" Margin="250,10,222,10">
+            <TextBlock Margin="0,0,0,10" HorizontalAlignment="Center" FontSize="20" FontWeight="ExtraBold">Редактирование мироприятия</TextBlock>
+            <TextBlock Text="Название" Margin="5,10,0,0" />
             <TextBox x:Name="tb1"/>
-            <TextBlock Text="Текст" Margin="5,10,0,0" />
+            <TextBlock Text="Описание" Margin="5,10,0,0" />
             <TextBox x:Name="tb2"/>
-            <TextBlock Text="Текст" Margin="5,10,0,0" />
-            <TextBox x:Name="tb3"/>
-            <TextBlock Text="Текст" Margin="5,10,0,0" />
-            <TextBox x:Name="tb4"/>
-            <TextBlock Text="Текст" Margin="5,10,0,0" />
-            <TextBox x:Name="tb5"/>
-            <TextBlock Text="Текст" Margin="5,10,0,0" />
-            <TextBox x:Name="tb6"/>
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Width="150">
+                    <TextBlock Text="Дата начала" Margin="5,10,0,0" />
+                    <DatePicker x:Name="tb3"/>
+                    <TextBlock Text="Организатор" Margin="5,10,0,0" />
+                    <ComboBox x:Name="tb6"/>
+                </StackPanel>
+                <StackPanel Width="150" Margin="25,0,0,0">
+                    <TextBlock Text="Дата окончания" Margin="5,10,0,0" />
+                    <DatePicker x:Name="tb4"/>
+
+                    <TextBlock Text="Расположение" Margin="5,10,0,0" />
+                    <ComboBox x:Name="tb7"/>
+                </StackPanel>
+            </StackPanel>
+
+
+            <TextBlock Text="Тип мироприятия" Margin="5,10,0,0" />
+            <ComboBox x:Name="tb5"/>
+
+            <TextBlock Text="Стоимость организации" Margin="5,10,0,0" />
+            <TextBox x:Name="tb8"/>
             <Button Content="Сохранить" x:Name="btnSave" Click="btnSave_Click" Margin="5" Width="100"/>
             <Button Content="Назад" x:Name="btnBack" Click="btnBack_Click" Margin="5" Width="100" />
         </StackPanel>

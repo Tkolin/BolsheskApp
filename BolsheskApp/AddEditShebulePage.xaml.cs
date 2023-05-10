@@ -29,5 +29,30 @@ namespace BolsheskApp
         {
 
         }
+
+        private void btnSaveQuas_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnAddQuast_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnDel_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
