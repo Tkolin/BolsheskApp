@@ -65,6 +65,7 @@ namespace BolsheskApp
             try
             {
                 BolsheskDBEntities.GetContext().Place.Remove(place);
+                BolsheskDBEntities.GetContext().SaveChanges();
             }
             catch (Exception ex)
             {
