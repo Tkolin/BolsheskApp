@@ -61,6 +61,7 @@ namespace BolsheskApp
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
+            NavigationService.Navigate(new AddEditEventPage());
 
         }
 
@@ -68,6 +69,9 @@ namespace BolsheskApp
         {
             if (dataGrid.SelectedItem == null)
                 return;
+
+            NavigationService.Navigate(new AddEditEventPage(dataGrid.SelectedItem as Event));
+
         }
 
         private void btnDelet_Click(object sender, RoutedEventArgs e)
@@ -95,6 +99,7 @@ namespace BolsheskApp
 
         private void btnEditQuast_Click(object sender, RoutedEventArgs e)
         {
+            NavigationService.Navigate(new AddEditShebulePage(dataGrid.SelectedItem as Event);
 
         }
     }

@@ -9,6 +9,15 @@
       Title="LoginPage">
 
     <Grid>
-        
+        <StackPanel Orientation="Vertical" Width="300" VerticalAlignment="Center">
+            <TextBlock Margin="0,0,0,50" HorizontalAlignment="Center" FontSize="20" FontWeight="ExtraBold">Авторизация</TextBlock>
+            <TextBlock Text="Имя" Margin="5,10,0,0" />
+            <TextBox x:Name="tb1"/>
+            <TextBlock Text="Фамилия" Margin="5,10,0,0" />
+            <TextBox x:Name="tb2"/>
+            <Button Content="Вход" x:Name="btnSave" Click="btnSave_Click" Margin="5,20,5,5" Width="100"/>
+            <Button Content="Выход" x:Name="btnBack" Click="btnBack_Click" Margin="5" Width="100" />
+
+        </StackPanel>
     </Grid>
 </Page>

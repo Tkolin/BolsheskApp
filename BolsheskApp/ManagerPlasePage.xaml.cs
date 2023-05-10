@@ -48,12 +48,15 @@ namespace BolsheskApp
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new AddEditPlasePage());
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
+            if (dataGrid.SelectedItem == null)
+                return;
 
+            NavigationService.Navigate(new AddEditPlasePage(dataGrid.SelectedItem as Place));
         }
 
         private void btnDelet_Click(object sender, RoutedEventArgs e)

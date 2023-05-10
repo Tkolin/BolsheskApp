@@ -20,11 +20,16 @@ namespace BolsheskApp
     /// </summary>
     public partial class NavigationPage : Page
     {
+        User user;
         public NavigationPage()
         {
             InitializeComponent();
         }
-
+        public NavigationPage(User user)
+        {
+            InitializeComponent();
+            this.user = user;
+        }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
 

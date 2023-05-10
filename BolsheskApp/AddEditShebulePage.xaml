@@ -14,9 +14,9 @@
             <StackPanel Width="355"  Margin="50,0,50,0">
                 <TextBlock Margin="0,0,0,50" HorizontalAlignment="Center" FontSize="20" FontWeight="ExtraBold">План</TextBlock>
                 <TextBlock Text="Мироприятие" Margin="5,10,0,0" />
-                <ComboBox x:Name="tm1"/>
+                <ComboBox x:Name="tm1" SelectionChanged="tm1_SelectionChanged"/>
                 <TextBlock Text="Список задач" Margin="5,10,0,0" />
-                <DataGrid x:Name="tm2" Height="151">
+                <DataGrid x:Name="tm2" Height="151" SelectionChanged="tm2_SelectionChanged">
                     
                 </DataGrid>
                     <Button Content="Добавить" x:Name="btnAddQuast" Click="btnAddQuast_Click" Margin="5" Width="100"/>
@@ -31,24 +31,21 @@
                     <StackPanel Orientation="Horizontal">
                         <StackPanel Margin="0,0,10,0" Width="151">
                             <TextBlock Text="Статус" Margin="5,10,0,0" />
-                            <ComboBox x:Name="tb4"/>
+                            <ComboBox x:Name="tb3"/>
                         </StackPanel>
                         <StackPanel Width="140">
                             <TextBlock Text="Дата выполнения" Margin="5,10,0,0" />
-                            <DatePicker x:Name="tb3"/>
+                            <DatePicker x:Name="tb4"/>
                         </StackPanel>
                     </StackPanel>
 
                 <TextBlock Text="Ответственный" Margin="5,10,0,0" />
-                <TextBox x:Name="tb5"/>
+                <ComboBox x:Name="tb5"/>
 
-                <TextBlock Text="Текст" Margin="5,10,0,0" />
-                <TextBox x:Name="tb6"/>
-                <Button Content="Сохранить" x:Name="btnSaveQuas" Click="btnSaveQuas_Click" Margin="5" Width="100"/>
+                <Button Content="Сохранить" x:Name="btnSaveQuas" Click="btnSaveQuas_Click" Margin="5,30,5,5" Width="100"/>
             </StackPanel>
 
         </StackPanel>
-            <Button Content="Сохранить" x:Name="btnSave" Click="btnSave_Click" Margin="5" Width="100"/>
             <Button Content="Назад" x:Name="btnBack" Click="btnBack_Click" Margin="5" Width="100" />
         </StackPanel>
     </Grid>

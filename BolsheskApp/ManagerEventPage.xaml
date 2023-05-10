@@ -37,7 +37,7 @@
                         <DataGridTextColumn Header="Расположение" Binding="{Binding Items.Name}" Width="3*"/>
                         <DataGridTextColumn Header="Адресс" Binding="{Binding Items.Name}" Width="3*"/>
 
-                        <DataGridTextColumn Header="Кол-во посетителей" Binding="{Binding Items.Name}" Width="3*"/>
+                        <DataGridTextColumn Header="Стоимость" Binding="{Binding Items.Name}" Width="3*"/>
 
                     </DataGrid.Columns>
                 </DataGrid>

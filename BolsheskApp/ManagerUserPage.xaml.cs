@@ -48,7 +48,7 @@ namespace BolsheskApp
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new AddEditUserPage());
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)

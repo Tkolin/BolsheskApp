@@ -24,5 +24,23 @@ namespace BolsheskApp
         {
             InitializeComponent();
         }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            if (GetRole(tb1.Text, tb2.Text) == null)
+                MessageBox.Show("Проверьте введёные данные!");
+            else
+                NavigationService.Navigate(new NavigationPage(GetRole(tb1.Text, tb2.Text)));
+
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+           //выход
+        }
+        private User GetRole(string login, string pass)
+        {
+            return BolsheskDBEntities.GetContext().User.Where(u => u.Login == login && u.Password == pass).First();
+        }
     }
 }

@@ -19,7 +19,7 @@
             <TextBox x:Name="tb3"/>
             <StackPanel Orientation="Horizontal">
                 <StackPanel Width="150" Margin="0,0,10,0">
-                    <TextBlock Text="Логи" Margin="5,10,0,0" />
+                    <TextBlock Text="Логин" Margin="5,10,0,0" />
                     <TextBox x:Name="tb4"/>
                     <TextBlock Text="Пароль" Margin="5,15,0,0" />
                     <TextBox x:Name="tb5"/>
